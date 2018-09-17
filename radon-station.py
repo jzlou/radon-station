@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """Simple logging radon station logic"""
 from __future__ import print_function
 import sys

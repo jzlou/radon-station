@@ -35,8 +35,7 @@ class Sensor:
         self.scale = scale
 
 
-def get_data():
-    p = Peripheral(WAVE_ADDRESS)
+def get_data(p):
     sensors = []
     sensors.append(Sensor("temperature", UUID(0x2A6E),
                           'h', "deg C\t", 1.0/100.0))
@@ -52,7 +51,6 @@ def get_data():
             value = characteristic.read()
             value = struct.unpack(s.format_type, value)
             data[s.name] = value[0] * s.scale
-    p.disconnect()
     logging.info('data received:', data)
     return data
 
@@ -74,7 +72,11 @@ def write_point(datum):
 
 if __name__ == "__main__":
     try:
-        write_point(get_data())
+        p = Peripheral(WAVE_ADDRESS)
+        write_point(get_data(p))
     except Exception:
         raise RuntimeError("Failed in main loop")
-    print("Wrote data to tsdb")
+    else:
+        print("Wrote data to tsdb")
+    finally:
+        p.disconnect()

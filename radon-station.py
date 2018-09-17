@@ -8,7 +8,7 @@ import logging
 from datetime import datetime
 import pika
 import json
-from bluepy.blte import UUID, Peripheral
+from bluepy.btle import UUID, Peripheral
 
 if len(sys.argv) > 1:
     LOCATION = sys.argv[1]

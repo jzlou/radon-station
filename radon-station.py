@@ -52,6 +52,7 @@ def get_data():
             value = struct.unpack(s.format_type, value)
             data[s.name] = value
     p.disconnect()
+    logging.info('data received:' data)
     return data
 
 

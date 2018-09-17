@@ -1,0 +1,9 @@
+{
+    "apps": [{
+        "name": "recorder",
+        "script": "./radon-station.py",
+        "watch": true,
+        "args": "nightstand",
+        "interpreter": "/usr/bin/python3"
+    }]
+}

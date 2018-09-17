@@ -51,7 +51,7 @@ def get_data():
         if (characteristic.supportsRead()):
             value = characteristic.read()
             value = struct.unpack(s.format_type, value)
-            data[s.name] = value
+            data[s.name] = value[0] * s.scale
     p.disconnect()
     logging.info('data received:', data)
     return data

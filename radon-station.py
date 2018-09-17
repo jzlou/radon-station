@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Simple logging radon station logic"""
+from __future__ import print_function
 import sys
 import os
 import struct
